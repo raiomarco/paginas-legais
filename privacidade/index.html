@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Política de privacidade</title>
+  <link rel="stylesheet" href="../estilo.css">
+</head>
+<body>
+  <main>
+    <h1>Política de privacidade</h1>
+    <p>Versão de 21 de novembro de 2026.</p>
+
+    <p>O serviço pode participar de conversas no Discord. O Discord conserva a própria cópia das mensagens. Esta página descreve o que o serviço usa e guarda quando a função correspondente está ligada.</p>
+
+    <h2>Eventos, fila e histórico</h2>
+    <p>O registro de eventos guarda identificadores técnicos da instância, do lugar, da plataforma, do evento e do canal, além do tipo do evento. A fila também leva o identificador do autor e da mensagem e a data de enfileiramento. A pendência de resposta guarda os identificadores da mensagem e do autor, com metadados técnicos. O lote guarda identificadores das mensagens e o estado da tentativa. Esses registros não guardam o texto das mensagens nem o texto da resposta.</p>
+
+    <p>Para responder, o serviço lê separadamente o histórico recente no Discord. O texto fica na memória do processo durante a preparação e, se a geração ocorrer, segue para um gateway interno de modelos. A retenção pelos fornecedores dos modelos não foi verificada para esta política.</p>
+
+    <p>Quando uma ferramenta modifica apelido, cargo, canal ou configurações de um servidor, o banco pode conservar o estado anterior e o novo para desfazer a ação. Isso pode incluir apelidos, nomes e elementos que façam parte da configuração alterada, como imagens. Esses registros não incluem texto de mensagens.</p>
+
+    <h2>Lembretes e recados</h2>
+    <p>Quando a função está ligada, o texto de um lembrete pessoal ou recado de canal fica em uma tabela própria enquanto o agendamento está ativo. O texto não entra na fila, no log do disparo, nas métricas nem na auditoria. No disparo, segue para o canal ou para a conversa direta no Discord, que guarda a própria cópia.</p>
+
+    <p>O texto de um lembrete fica guardado até ele ser enviado, cancelado ou expirar, e é apagado em seguida. Cópias de segurança seguem a retenção das cópias. O mesmo vale para um recado de canal. A exclusão do texto ocorre na mesma transação que encerra o agendamento, inclusive quando uma validação o revoga antes do envio ou quando o serviço encerra sem confirmar a entrega. Os metadados técnicos e de auditoria permanecem. Se o registro continuar ativo durante uma nova tentativa ou uma falha impedir o encerramento, o texto permanece guardado até a transição final.</p>
+
+    <h2>Memória de longo prazo</h2>
+    <p>Quando habilitada, a memória durável usa mensagens buscadas e conferidas pelos identificadores dos eventos. O serviço separa mensagens pelo autor e preserva a origem, o público, a sensibilidade e as marcações de segredo como contexto. A memória fica separada por instância do assistente e dura além da conversa. Uma gravação já confirmada pode permanecer quando o preparo da resposta perde o prazo e a resposta é produzida sem lembranças.</p>
+
+    <p>Ao consultar lembranças, o serviço considera as pessoas relevantes à conversa. O assistente avalia o que cabe usar conforme a origem, o público, a sensibilidade e as autorizações associadas aos pedidos de segredo. Lugares, como servidores e mensagens diretas, fazem parte desse contexto. Uma lembrança pode ser consultada em outro lugar, conforme essas regras. O histórico recente usado para responder é lido separadamente, no lugar da conversa em andamento.</p>
+
+    <h2>Geração, rastreamento e erros</h2>
+    <p>Quando o rastreamento está habilitado, um coletor interno pode guardar a instrução, o histórico e a resposta. A regra configurada prevê retenção de 14 dias. Uma cópia operacional, quando habilitada, leva identificadores e dados técnicos sem texto de mensagens.</p>
+
+    <p>Quando o relato de erros está habilitado, o serviço reconstrói o evento técnico com tipo da exceção, trechos técnicos de execução, versão, ambiente e marcadores fixos. O envio não copia a mensagem da exceção nem o pedido original. O descarte do endereço de origem pelo serviço de erros não foi verificado para esta política.</p>
+
+    <h2>Cópias de segurança e pedidos de exclusão</h2>
+    <p>A regra configurada guarda as sete cópias de segurança mais recentes de cada banco coberto, incluindo dados operacionais, memória e rastreamento. Isso não fixa prazo máximo. Se uma cópia diária falhar, as cópias existentes podem durar mais de sete dias.</p>
+
+    <p>O esquecimento de memória está implementado. Você pode pedi-lo em mensagem direta ou em um servidor autorizado, para aquele lugar ou para todos os lugares daquela instância. O serviço identifica quem pediu pelo identificador autenticado do Discord. Um operador com autorização administrativa do serviço também pode atender ao pedido em seu nome.</p>
+
+    <p>O serviço apaga ou invalida as lembranças vinculadas a você no escopo solicitado, incluindo as observações consolidadas correspondentes, e confere a exclusão. Se precisar retomar o procedimento, mantém essas lembranças indisponíveis para consulta até concluir. A auditoria do pedido usa apenas identificadores técnicos. Fatos que outras pessoas disseram em nome próprio permanecem vinculados a quem falou.</p>
+
+    <p>O pedido não apaga mensagens no Discord, rastreamentos já enviados ao coletor, metadados e auditoria do banco operacional, agendamentos ainda ativos nem cópias de segurança conservadas pela regra descrita acima.</p>
+
+    <p>Para pedir uma revisão manual, escreva para <a href="mailto:marco.lobao@raio.tech">marco.lobao@raio.tech</a>. O prazo de resposta é de até 15 dias. O envio do e-mail não apaga dados automaticamente.</p>
+
+    <footer><a href="../termos/">Termos de uso</a></footer>
+  </main>
+</body>
+</html>
